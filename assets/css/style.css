@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@600;800&display=swap");
+
+:root {
+    --Yellow: hsl(47, 88%, 63%);
+    --White: hsl(0, 0%, 100%);
+    --Grey: hsl(0, 0%, 50%);
+    --Black: hsl(0, 0%, 7%);
+}
+
+* {
+    font-family: "Figtree", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--White);
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--Yellow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 400px;
+    height: fit-content;
+    border-radius: 15px;
+    background-color: var(--Black);
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.box,
+.box1 {
+    position: relative;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.box1::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 200%;
+    background: linear-gradient(#00ffff, transparent 60%);
+    border-radius: 15px;
+}
+
+.box1:hover::before {
+    animation: rotate 3s linear infinite;
+}
+
+.box::before {
+    position: absolute;
+    content: "";
+    width: 200%;
+    height: 200%;
+    background: repeating-conic-gradient(from 90deg, chartreuse 0%, chartreuse 5%, transparent 5%, transparent 40%, chartreuse 50%);
+    border-radius: 10px;
+}
+
+.box::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 200%;
+    background: repeating-conic-gradient(#0011ff 0%, #0011ff 5%, transparent 5%, transparent 40%, #0011ff 50%);
+    border-radius: 10px;
+}
+
+.box:hover::before,
+.box:hover::after {
+    animation: rotate 4s linear infinite;
+}
+
+@property --a {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.box img {
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+    border: 4px solid #000000;
+}
+
+.content {
+    margin-top: 10px;
+}
+
+.content .tag {
+    background-color: var(--Yellow);
+    width: fit-content;
+    padding: 5px 20px;
+    border-radius: 5px;
+    color: var(--Black);
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.content .add {
+    margin: 0 0 10px 0;
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+.content h2 {
+    margin-bottom: 20px;
+}
+
+.content .desc {
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.content .post {
+    display: flex;
+    align-items: center;
+}
+
+.content .post img {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}
